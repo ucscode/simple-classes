@@ -36,6 +36,7 @@ Whatever it is, you don't need to edit the file again, you just need to define a
       // print some other code here
     });
 ```
+---
 
 ### sQuery
 Do you always write your code like this each and everytime:
@@ -44,9 +45,8 @@ Do you always write your code like this each and everytime:
 
   // $mysqli->query( $SQL );
 ```
-It's very common to repeat SQL codes since you'll most likely be interacting with database all the time.
-
-Well, `sQuery` helps you generate the string in a more simplified way. 
+It's very common to repeat SQL codes since you'll most likely be interacting with database all the time.\
+Well, `sQuery` helps you generate the string in a more simplified way.\
 The example below shows how to get the same SQL string using sQuery class
 ```php
   $data = array(
@@ -58,10 +58,14 @@ The example below shows how to get the same SQL string using sQuery class
   $SQL = sQuery::insert( "users", $data );
 
   // $mysqli->query( $SQL );
+
+  // Also applicable to sQuery::select, sQuery::update
 ```
+---
 
 ### Pairs
-Have you ever created a database that required too much droping and creating of columns? Especially something like admin settings? Then you should consider using pairs
+Have you ever created a database that required too much droping and creating of columns? Especially something like an admin settings?\
+Then you should consider using pairs
 
 `Pairs` requires a specific kind of table in the format:
 ```sql
@@ -71,7 +75,8 @@ Have you ever created a database that required too much droping and creating of 
     _value text
   );
 ```
-If a pair table does not exist, it will be created by the Pairs class. So how does it work?
+If a pair table does not exist, it will be created by the Pairs class when instantiated.\
+So how does it work?
 ```php
   $mysqli = new mysqli(...your config);
   $pair = new pairs($mysqli, 'tablename'); 
