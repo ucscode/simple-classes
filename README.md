@@ -81,3 +81,11 @@ Now that pairs has been created, how do you modify values
   $pairs->get("email"); // 'new@gmail.com'
   $pairs->remove("email"); // true;
 ```
+
+---
+
+I'll continue updating this with more awesome classes.
+
+### UCHENNA AJAH - UCSCODE;
+
+
