@@ -26,9 +26,11 @@ Whatever it is, you don't need to edit the file again, you just need to define a
 
 ```php
   <?php 
+
     events::addListener("header-scripts", function() {
      // print your google analytics code here
     });
+
     events::addListener("header-scripts", function() {
       // print your custom code here
       // print some other code here
