@@ -47,7 +47,7 @@ Do you always write you code like this each and everytime:
 ```
 It's very common to repeat sql codes since you'll most likely be interacting with database all the time.
 
-Well, sQuery helps you generate the string in a more simplified way. The example below shows how to get the same SQL string using sQuery class
+Well, `sQuery` helps you generate the string in a more simplified way. The example below shows how to get the same SQL string using sQuery class
 ```php
   $data = array(
     "name" => "ucscode",
@@ -62,7 +62,7 @@ Well, sQuery helps you generate the string in a more simplified way. The example
 ### Pairs
 Have you ever created a database that required too much droping and creating of columns? Especially something like admin settings? Then you should consider using pairs
 
-Pairs requires a specific kind of table in the format:
+`Pairs` requires a specific kind of table in the format:
 ```sql
   CREATE TABLE IF NOT EXISTS `tablename` (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
@@ -81,7 +81,7 @@ Now that pairs has been created, how do you modify values
   $pairs->get("email"); // 'new@gmail.com'
   $pairs->remove("email"); // true;
 ```
-
+###### Note: Pairs requires sQuery
 ---
 
 I'll continue updating this with more awesome classes.
