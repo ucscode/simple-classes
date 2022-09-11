@@ -12,6 +12,18 @@ class pairs {
 			throw new Exception( "pairs::__construct() relies on static class `sQuery` to operate" );
 		$this->tablename = $tablename;
 		$this->mysqli = $mysqli;
+		$this->createTable();
+	}
+	
+	private function createTable() {
+		$SQL = "
+			CREATE TABLE IF NOT EXISTS `{$this->tablename}` (
+				`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+				`_key` varchar(255) NOT NULL UNIQUE,
+				`_value` text
+			);
+		";
+		$this->mysqli->query( $SQL );
 	}
 	
 	public function set(string $key, $value) {
