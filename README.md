@@ -78,7 +78,10 @@ Then you should consider using pairs
 If a pair table does not exist, it will be created by the Pairs class when instantiated.\
 So how does it work?
 ```php
+  # create a mysqli instance that pairs can use to interact with the database
   $mysqli = new mysqli(...your config);
+
+  # pass the mysqli object and the tablename to pairs constructor
   $pair = new pairs($mysqli, 'tablename'); 
 ```
 Now that pairs has been created, how do you modify values
