@@ -20,10 +20,8 @@ Copyright (c) by UCSCODE
   <body>...</body>
   </html>
 ```
-You can see from the above html script that we executed an event handle named "header-scripts". 
-
-So let's say you want to add a google anaytics code to the <head> section, or you want to add you own custom script. 
-  
+You can see from the above html script that we executed an event handle named "header-scripts".\
+So let's say you want to add a google anaytics code to the <head> section, or you want to add you own custom script.\
 Whatever it is, you don't need to edit the file again, you just need to define a listener.
 
 ```php
