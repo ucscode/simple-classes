@@ -7,7 +7,7 @@ Copyright (c) by UCSCODE
 ##### Download any of the above PHP Class files and see how easy your programming task becomes
 
 ## Events
-events is a php class that enables you paste handles in different area of your code and execute a function in those area when needed without editing the file.
+`events` is a php class that enables you paste handles in different area of your code and execute multiple functions in those areas when needed without editing the code.
 
 ```php
   # Example;
