@@ -97,9 +97,11 @@ I'll continue updating this with more awesome classes.
 
 ### UCHENNA AJAH - UCSCODE;
 
+---
+
 # DONATE
 
-If you appreciate this project, you can consider donating some crypto coin to the developer
+If you appreciate this project, donate some crypto-coin ;)
 
 **BTC:** 3KPCPLvqarpRdpYyNUKzExsFwdzeprhK7B
 
