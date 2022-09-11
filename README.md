@@ -1,5 +1,5 @@
 # simple-classes
-A list of PHP classes created to make any project development easy
+A list of PHP class files created to make any project development easier
 
 Copyright (c) by UCSCODE
 
