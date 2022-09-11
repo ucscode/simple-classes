@@ -40,15 +40,16 @@ Whatever it is, you don't need to edit the file again, you just need to define a
 ```
 
 ### sQuery
-Do you always write you code like this each and everytime:
+Do you always write your code like this each and everytime:
 ```php
   $SQL = "INSERT INTO `users` (name, email, password) VALUES ('ucscode', 'me@email.com', '****')";
 
   // $mysqli->query( $SQL );
 ```
-It's very common to repeat sql codes since you'll most likely be interacting with database all the time.
+It's very common to repeat SQL codes since you'll most likely be interacting with database all the time.
 
-Well, `sQuery` helps you generate the string in a more simplified way. The example below shows how to get the same SQL string using sQuery class
+Well, `sQuery` helps you generate the string in a more simplified way. 
+The example below shows how to get the same SQL string using sQuery class
 ```php
   $data = array(
     "name" => "ucscode",
