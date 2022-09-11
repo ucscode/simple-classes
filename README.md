@@ -42,7 +42,7 @@ Whatever it is, you don't need to edit the file again, you just need to define a
 ### sQuery
 Do you always write you code like this each and everytime:
 ```php
-  $SQL = "INSERT INTO `users` (name, email, password) VALUES ('ucscode', 'me@email.com', '****');
+  $SQL = "INSERT INTO `users` (name, email, password) VALUES ('ucscode', 'me@email.com', '****')";
   // $mysqli->query( $SQL );
 ```
 It's very common to repeat sql codes since you'll most likely be interacting with database all the time.
