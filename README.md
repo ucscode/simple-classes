@@ -101,9 +101,9 @@ I'll continue updating this with more awesome classes.
 
 If you appreciate this project, you can consider donating some crypto coin to the developer
 
-*BTC:* 3KPCPLvqarpRdpYyNUKzExsFwdzeprhK7B
+**BTC:** 3KPCPLvqarpRdpYyNUKzExsFwdzeprhK7B
 
-*ETH:* 0xa873A81f63C6D4FD976C601dEB75b59c3Cb94fac
+**ETH:** 0xa873A81f63C6D4FD976C601dEB75b59c3Cb94fac
 
 ---
 
