@@ -85,11 +85,18 @@ So how does it work?
   # pass the mysqli object and the tablename to pairs constructor
   $pair = new pairs($mysqli, 'tablename'); 
 ```
-Now that pairs has been created, how do you modify values
+Now that pairs has been created, you can modify values
 ```php
   $pairs->set("email", "new@email.com"); // true
   $pairs->get("email"); // 'new@gmail.com'
   $pairs->remove("email"); // true;
+```
+You can also create a pair by reference
+```php
+  $userid = 2;
+  $pairs->set('activation_code', '668923', $userid);
+  $pairs->get('activation_code'); // null;
+  $pairs->get('activation_code', $userid); // 668923
 ```
 ###### Note: Pairs requires sQuery
 ---
