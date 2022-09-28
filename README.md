@@ -64,7 +64,7 @@ The example below shows how to get the same SQL string using sQuery class
 ---
 
 ### Pairs
-Have you ever created a database that required too much droping and creating of columns? Especially something like an admin settings?\
+Have you ever created a database that required too much droping and creating of columns? Especially something like configuration settings?\
 Then you should consider using pairs
 
 `Pairs` requires a specific kind of table in the format:
