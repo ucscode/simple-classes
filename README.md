@@ -91,7 +91,7 @@ Now that pairs has been created, you can modify values
   $pairs->get("email"); // 'new@gmail.com'
   $pairs->remove("email"); // true;
 ```
-You can also create a pair by reference
+You can also create a pair by reference. (Note: the reference must be an integer)
 ```php
   $userid = 2;
   $pairs->set('activation_code', '668923', $userid);
