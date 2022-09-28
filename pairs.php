@@ -27,6 +27,12 @@ class pairs {
 		$this->mysqli->query( $SQL );
 	}
 	
+	private function test( ?int $ref = null ) {
+		if( is_null($ref) ) $test = " IS " . sQuery::val( $ref );
+		else $test = " = " . sQuery::val( $ref );
+		return $test;
+	}
+	
 	public function set(string $key, $value, ?int $ref = null) {
 		$value = json_encode($value);
 		$value = $this->mysqli->real_escape_string($value);
@@ -35,7 +41,7 @@ class pairs {
 			$condition = null;
 		} else {
 			$method = "update";
-			$condition = "_key = '{$key}' AND _ref = " . sQuery::val( $ref );
+			$condition = "_key = '{$key}' AND _ref " . $this->test($ref);
 		};
 		$Query = sQuery::{$method}( $this->tablename, array( 
 			"_key" => $key, 
@@ -47,7 +53,7 @@ class pairs {
 	}
 	
 	public function get(string $key, ?int $ref = null) {
-		$Query = sQuery::select( $this->tablename, "_key = '{$key}' AND _ref = " . sQuery::val( $ref ) );
+		$Query = sQuery::select( $this->tablename, "_key = '{$key}' AND _ref " . $this->test( $ref ) );
 		$result = $this->mysqli->query( $Query )->fetch_assoc();
 		if( $result ) {
 			$value = json_decode($result['_value']);
@@ -56,7 +62,7 @@ class pairs {
 	}
 	
 	public function remove(string $key, ?int $ref = null) {
-		$Query = "DELETE FROM `{$this->tablename}` WHERE _key = '{$key}' AND _ref = " . sQuery::val( $ref );
+		$Query = "DELETE FROM `{$this->tablename}` WHERE _key = '{$key}' AND _ref " . $this->test( $ref );
 		$result = $this->mysqli->query( $Query );
 		return $result;
 	}
