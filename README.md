@@ -70,7 +70,8 @@ Then you should consider using pairs
 `Pairs` requires a specific kind of table in the format:
 ```sql
   CREATE TABLE IF NOT EXISTS `tablename` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    _ref INT,
     _key varchar(255) NOT NULL,
     _value text
   );
