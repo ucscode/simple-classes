@@ -56,7 +56,7 @@ class pairs {
 		$Query = sQuery::select( $this->tablename, "_key = '{$key}' AND _ref " . $this->test( $ref ) );
 		$result = $this->mysqli->query( $Query )->fetch_assoc();
 		if( $result ) {
-			$value = json_decode($result['_value']);
+			$value = json_decode($result['_value'], true);
 			return $value;
 		}
 	}
