@@ -20,7 +20,7 @@ class pairs {
 			CREATE TABLE IF NOT EXISTS `{$this->tablename}` (
 				`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 				`_ref` INT,
-				`_key` varchar(255) NOT NULL UNIQUE,
+				`_key` varchar(255) NOT NULL,
 				`_value` text
 			);
 		";
