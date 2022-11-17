@@ -34,5 +34,21 @@ class core {
 			return "{$key}=\"{$value}\"";
 		}, array_keys($array), array_values($array)));
 	}
+	
+	# [ GENERATE KEY ]
+	
+	public static function keygen($length = 10, bool $use_spec_char = false) {
+		$data = array( ...range(0, 9), ...range('a', 'z'), ...range('A', 'Z') );
+		if( $use_spec_char ) {
+			$special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '[', ']', '{', '}', '/', ':', '.', ';'];
+			foreach( $special as $char ) $data[] = $char;
+		}
+		$key = '';
+		for( $x = 0; $x < $length; $x++ ) {
+			shuffle($data);
+			$key .= $data[0];
+		};
+		return $key;
+	}
 
 }
