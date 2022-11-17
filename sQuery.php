@@ -15,7 +15,7 @@ class sQuery {
 		return $SQL;
 	}
 	
-	private static function val( $value ) {
+	public static function val( $value ) {
 		if( is_numeric($value) ) return $value;
 		else if( is_null($value) ) return 'NULL';
 		else return "'{$value}'";
