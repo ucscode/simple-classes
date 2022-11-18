@@ -4,12 +4,6 @@
 
 class sQuery {
 	
-	protected static $mysqli;
-	
-	public static function connect( MYSQLI $mysqli ) {
-		self::$mysqli = $mysqli;
-	}
-	
 	public static function select( $tablename, $condition = 1 ) {
 		$SQL = "SELECT * FROM `{$tablename}` WHERE {$condition}";
 		return $SQL;
@@ -21,12 +15,12 @@ class sQuery {
 		else return "'{$value}'";
 	}
 	
-	public static function insert( string $tablename, array $data ) {
+	public static function insert( string $tablename, array $data, ?MYSQLI $mysqli = null ) {
 		$columns = implode(", ", array_map(function($key) {
 			return "`{$key}`";
 		}, array_keys($data)));
-		$values = array_map(function($value) {
-			if( self::$mysqli ) $value = self::$mysqli->real_escape_string( $value );
+		$values = array_map(function($value) use($mysqli) {
+			if( $mysqli ) $value = $mysqli->real_escape_string( $value );
 			return self::val( $value );
 		}, array_values($data));
 		$values = implode(", ", $values);
@@ -34,9 +28,9 @@ class sQuery {
 		return $SQL;
 	}
 	
-	public static function update( string $tablename, array $data, $condition = 1 ) {
-		$fieldset = array_map(function($key, $value) {
-			if( self::$mysqli ) $value = self::$mysqli->real_escape_string( $value );
+	public static function update( string $tablename, array $data, $condition = 1, ?MYSQLI $mysqli = null ) {
+		$fieldset = array_map(function($key, $value) use($mysqli) {
+			if( $mysqli ) $value = $mysqli->real_escape_string( $value );
 			return "`{$key}` = " . self::val( $value );
 		}, array_keys($data), array_values($data));
 		$fieldset = implode(", ", $fieldset);
