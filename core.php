@@ -125,7 +125,7 @@ class core {
 	public function sanitize( $func, $content ) {
 		if( is_array($content) || is_object($content) ) {
 			foreach( $content as $key => $value )
-				$content[ $key ] = self::sanitize( $value, $func );
+				$content[ $key ] = self::sanitize( $func, $value );
 		} else if( is_callable($func) ) $content = call_user_func($func, $content);
 		return $content;
 	}
