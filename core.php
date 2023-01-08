@@ -122,7 +122,7 @@ class core {
 		--- [ SANITIZE INPUT OR ARRAY ]
 	*/
 	
-	public function sanitize( $content, $func ) {
+	public function sanitize( $func, $content ) {
 		if( is_array($content) || is_object($content) ) {
 			foreach( $content as $key => $value )
 				$content[ $key ] = self::sanitize( $value, $func );
