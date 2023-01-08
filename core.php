@@ -118,4 +118,21 @@ class core {
 	}
 	
 	
+	/*
+		--- [ SANITIZE INPUT OR ARRAY ]
+	*/
+	
+	public function sanitize( $content ) {
+		if( in_array(getType($content), ["integer", "float", "string", "array"]) ) {
+			if( is_array($content) ) {
+				foreach( $content as $key => $value )
+					$content[ $key ] = self::sanitize( $value );
+			} else {
+				$content = htmlspecialchars($content);
+				$content = trim($content);
+			}
+		};
+		return $content;
+	}
+	
 }
