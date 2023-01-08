@@ -122,16 +122,11 @@ class core {
 		--- [ SANITIZE INPUT OR ARRAY ]
 	*/
 	
-	public function sanitize( $content ) {
-		if( in_array(getType($content), ["integer", "float", "string", "array"]) ) {
-			if( is_array($content) ) {
-				foreach( $content as $key => $value )
-					$content[ $key ] = self::sanitize( $value );
-			} else {
-				$content = htmlspecialchars($content);
-				$content = trim($content);
-			}
-		};
+	public function sanitize( $content, $func ) {
+		if( is_array($content) || is_object($content) ) {
+			foreach( $content as $key => $value )
+				$content[ $key ] = self::sanitize( $value, $func );
+		} else if( is_callable($func) ) $content = call_user_func($func, $content);
 		return $content;
 	}
 	
