@@ -7,15 +7,15 @@ class pairs {
 	private $tablename;
 	private $mysqli;
 	
-	public function __construct(MYSQLI $mysqli, string $tablename) {
+	public function __construct(MYSQLI $mysqli, string $tablename, $auto_create = true) {
 		if( !class_exists('sQuery') ) 
 			throw new Exception( "pairs::__construct() relies on class `sQuery` to operate" );
 		$this->tablename = $tablename;
 		$this->mysqli = $mysqli;
-		$this->createTable();
+		if( $auto_create ) $this->createTable();
 	}
 	
-	private function createTable() {
+	public function createTable() {
 		$SQL = "
 			CREATE TABLE IF NOT EXISTS `{$this->tablename}` (
 				`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
