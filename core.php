@@ -41,7 +41,7 @@ class core {
 	
 	public static function array_to_html_attrs( array $array ) {
 		return implode(" ", array_map(function($key, $value) {
-			if( is_array($value) ) $value = implode(",", $value);
+			if( is_array($value) ) $value = htmlspecialchars( implode(",", $value) );
 			return "{$key}=\"{$value}\"";
 		}, array_keys($array), array_values($array)));
 	}
@@ -122,11 +122,14 @@ class core {
 		--- [ SANITIZE INPUT OR ARRAY ]
 	*/
 	
-	public function sanitize( $func, $content ) {
+	public function sanitize( $content, $func ) {
+		$class = __CLASS__;
+		$method = __FUNCTION__;
+		if( !is_callable($func) ) throw new Exception( "Argument provided in parameter 2 of {$class}::{$method}() is not callable" );
 		if( is_array($content) || is_object($content) ) {
 			foreach( $content as $key => $value )
-				$content[ $key ] = self::sanitize( $func, $value );
-		} else if( is_callable($func) ) $content = call_user_func($func, $content);
+				$content[ $key ] = self::sanitize( $value, $func );
+		} else $content = call_user_func($func, $content);
 		return $content;
 	}
 	
