@@ -36,7 +36,8 @@ class pairs {
 	public function set(string $key, $value, ?int $ref = null) {
 		$value = json_encode($value);
 		$value = $this->mysqli->real_escape_string($value);
-		if( is_null($this->get($key, $ref)) ) {
+		$SQL = sQuery::select( $this->tablename, "_key = '{$key}' AND _ref " . $this->test( $ref ) );
+		if( !$this->mysqli->query( $SQL )->num_rows ) {
 			$method = "insert";
 			$condition = null;
 		} else {
