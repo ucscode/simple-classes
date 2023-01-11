@@ -32,13 +32,9 @@ class events {
 		};
 	}
 	
-	/*
-		`self::listener` was the default method for adding  until the version was updated.
-		To make it compactible with previously used cases, the `listener` method was not remove;
-		However, it is advisible to use the `addListener` method instead for future compactibility
-	*/
+	# --- [ add event listener ] ---
 	
-	public static function listener(string $eventTypes, callable $function, ?string $uid = null) {
+	public static function addListener(string $eventTypes, callable $function, ?string $uid = null) {
 		# UID = Unique ID
 		self::splitEvents($eventTypes, function($event) use($function, $uid) {
 			if( !array_key_exists($event, self::$events) ) self::$events[ $event ] = array();
@@ -46,12 +42,6 @@ class events {
 			if( is_null($uid) ) $eventList[] = $function;
 			else if( !array_key_exists($uid, $eventList) ) $eventList[ $uid ] = $function; 
 		});
-	}
-	
-	# --- [ add event listener ] ---
-	
-	public static function addListener(string $eventTypes, callable $function, ?string $uid = null) {
-		self::listener($eventTypes, $function, $uid);
 	}
 	
 	# --- [ remove event listener by id ] ---
